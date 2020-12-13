@@ -1,12 +1,12 @@
 #----------------------- Imports globally used functions and variables -----------------------#
 
-from tkinter import *   
-import random, sys      
+from tkinter import *
+import sys
 
 title = "Mathematica"       #The title of every window in the program.
 
 labelFont = ("Arial", 14)               #Defines the fonts of the texts or buttons in a window.
-buttonFont = ("Arial", 13, "bold")       
+BUTTON_FONT = ("Arial", 13, "bold")
 
 okColor = "aquamarine"      #Defines the color of the buttons in a window.
 submitColor = "turquoise"   
@@ -60,7 +60,7 @@ def greetUser():        #Greets users
     
     blankSpace()
     
-    Button(window, width=10, bg=okColor, text="Ok", font=buttonFont, command=selectSkill).pack()
+    Button(window, width=10, bg=okColor, text="Ok", font=BUTTON_FONT, command=selectSkill).pack()
 
     window.bind("<Return>", openSelectSkill)        #Allows the user to press enter and and open selectSkill module.
 
@@ -87,13 +87,13 @@ def selectSkill():      #Allows users to choose specific math skills or quit the
 
     Label(window, height=2, font=labelFont, text="Please select the mathematical skill to learn.").pack()
     
-    Button(window, width=13, bg="LightBlue1", text="Addition", font=buttonFont, command=learnAddition).pack()
-    Button(window, width=13, bg="salmon", text="Subtraction", font=buttonFont, command=learnSubtraction).pack()
-    Button(window, width=13, bg="OliveDrab1", text="Multiplication", font=buttonFont, command=learnMultiplication).pack()
+    Button(window, width=13, bg="LightBlue1", text="Addition", font=BUTTON_FONT, command=learnAddition).pack()
+    Button(window, width=13, bg="salmon", text="Subtraction", font=BUTTON_FONT, command=learnSubtraction).pack()
+    Button(window, width=13, bg="OliveDrab1", text="Multiplication", font=BUTTON_FONT, command=learnMultiplication).pack()
 
     blankSpace()
     
-    Button(window, text="Quit", command=exit, width=10, bg="firebrick2", fg="white", font=buttonFont).pack()
+    Button(window, text="Quit", command=exit, width=10, bg="firebrick2", fg="white", font=BUTTON_FONT).pack()
 
     window.mainloop()
 
@@ -130,11 +130,11 @@ def learnAddition():        #Opens learning addition window and teaches students
     
     blankSpace()
     
-    Button(window, width=10, bg=okColor, text="Ok", font=buttonFont, command=tryAddition).pack()
+    Button(window, width=10, bg=okColor, text="Ok", font=BUTTON_FONT, command=tryAddition).pack()
     
     blankSpace()
     
-    Button(window, bg=mainMenuColor, text="Back to Main Menu", font=buttonFont, command=selectSkill).pack()
+    Button(window, bg=mainMenuColor, text="Back to Main Menu", font=BUTTON_FONT, command=selectSkill).pack()
     
     blankSpace()
 
@@ -178,7 +178,7 @@ def tryAddition():      #Questions the users and if they have answered certain n
         
         blankSpace()
 
-        Button(window, width=10, bg=submitColor, text="Submit", font=buttonFont, command=checkAddition).pack()
+        Button(window, width=10, bg=submitColor, text="Submit", font=BUTTON_FONT, command=checkAddition).pack()
         
         blankSpace()
 
@@ -207,7 +207,7 @@ def tryAddition():      #Questions the users and if they have answered certain n
         
         blankSpace()
 
-        Button(window, width=10, bg=okColor, text="Ok", font=buttonFont, command=selectSkill).pack()
+        Button(window, width=10, bg=okColor, text="Ok", font=BUTTON_FONT, command=selectSkill).pack()
         
         blankSpace()
 
@@ -247,7 +247,7 @@ def checkAddition():
         Label(win, font=labelFont, text="Please enter a valid NUMBER!").pack()
         Label(win).pack()
 
-        Button(win, width=10, bg=okColor, text="Ok", font=buttonFont, command=closeWindow).pack()
+        Button(win, width=10, bg=okColor, text="Ok", font=BUTTON_FONT, command=closeWindow).pack()
         Label(win).pack()
 
         win.bind("<Return>", enterCloseWindow)
@@ -276,7 +276,7 @@ def checkAddition():
             Label(window, font=labelFont, text="Keep up the good work.").pack()
             blankSpace()
 
-            Button(window, width=10, bg=okColor, text="Ok", font=buttonFont, command=tryAddition).pack()
+            Button(window, width=10, bg=okColor, text="Ok", font=BUTTON_FONT, command=tryAddition).pack()
             blankSpace()
 
             window.bind("<Return>", nextAddition)
@@ -305,7 +305,7 @@ def checkAddition():
             Label(window, font=labelFont, text="Keep practicing.").pack()
             blankSpace()
         
-            Button(window, width=10, bg=okColor, text="Ok", font=buttonFont, command=tryAddition).pack()
+            Button(window, width=10, bg=okColor, text="Ok", font=BUTTON_FONT, command=tryAddition).pack()
             blankSpace()
 
             window.bind("<Return>", nextAddition)
@@ -340,9 +340,9 @@ def learnSubtraction():     #Opens learning subtraction window and teaches stude
     Label(window, font=labelFont, text="Let's practice some subtraction questions!").pack()
     blankSpace()
     
-    Button(window, width=10, bg=okColor, text="Ok", font=buttonFont, command=trySubtraction).pack()
+    Button(window, width=10, bg=okColor, text="Ok", font=BUTTON_FONT, command=trySubtraction).pack()
     blankSpace()
-    Button(window, bg=mainMenuColor, text="Back to Main Menu", font=buttonFont, command=selectSkill).pack()
+    Button(window, bg=mainMenuColor, text="Back to Main Menu", font=BUTTON_FONT, command=selectSkill).pack()
     blankSpace()
 
     window.bind("<Return>", nextSubtraction)
@@ -389,7 +389,7 @@ def trySubtraction():      #Questions the users and if they have answered certai
         answer.pack()
         blankSpace()
 
-        Button(window, width=10, bg=submitColor, text="Submit", font=buttonFont, command=checkSubtraction).pack()
+        Button(window, width=10, bg=submitColor, text="Submit", font=BUTTON_FONT, command=checkSubtraction).pack()
         blankSpace()
 
         window.bind("<Return>", openCheckSubtraction)
@@ -415,7 +415,7 @@ def trySubtraction():      #Questions the users and if they have answered certai
         Label(window, font=labelFont, text="Good job! Now you know how to do subtraction!").pack()
         blankSpace()
 
-        Button(window, width=10, bg=okColor, text="Ok", font=buttonFont, command=selectSkill).pack()
+        Button(window, width=10, bg=okColor, text="Ok", font=BUTTON_FONT, command=selectSkill).pack()
         blankSpace()
 
         window.bind("<Return>", openSelectSkill)
@@ -454,7 +454,7 @@ def checkSubtraction():
         Label(win, font=labelFont, text="Please enter a valid NUMBER!").pack()
         Label(win).pack()
 
-        Button(win, width=10, bg=okColor, text="Ok", font=buttonFont, command=closeWindow).pack()
+        Button(win, width=10, bg=okColor, text="Ok", font=BUTTON_FONT, command=closeWindow).pack()
         Label(win).pack()
 
         win.bind("<Return>", enterCloseWindow)
@@ -483,7 +483,7 @@ def checkSubtraction():
             Label(window, font=labelFont, text="Keep up the good work.").pack()
             blankSpace()
 
-            Button(window, width=10, bg=okColor, text="Ok", font=buttonFont, command=trySubtraction).pack()
+            Button(window, width=10, bg=okColor, text="Ok", font=BUTTON_FONT, command=trySubtraction).pack()
             blankSpace()
 
             window.bind("<Return>", nextSubtraction)
@@ -512,7 +512,7 @@ def checkSubtraction():
             Label(window, font=labelFont, text="Keep practicing.").pack()
             blankSpace()
         
-            Button(window, width=10, bg=okColor, text="Ok", font=buttonFont, command=trySubtraction).pack()
+            Button(window, width=10, bg=okColor, text="Ok", font=BUTTON_FONT, command=trySubtraction).pack()
             blankSpace()
 
             window.bind("<Return>", nextSubtraction)
@@ -547,9 +547,9 @@ def learnMultiplication():      #Opens learning multiplication window and teache
     Label(window, font=labelFont, text="Let's practice some multiplication questions!").pack()
     blankSpace()
     
-    Button(window, width=10, bg=okColor, text="Ok", font=buttonFont, command=tryMultiplication).pack()
+    Button(window, width=10, bg=okColor, text="Ok", font=BUTTON_FONT, command=tryMultiplication).pack()
     blankSpace()
-    Button(window, bg=mainMenuColor, text="Back to Main Menu", font=buttonFont, command=selectSkill).pack()
+    Button(window, bg=mainMenuColor, text="Back to Main Menu", font=BUTTON_FONT, command=selectSkill).pack()
     blankSpace()
 
     window.bind("<Return>", nextMultiplication)
@@ -591,7 +591,7 @@ def tryMultiplication():      #Questions the users and if they have answered cer
         answer.pack()
         blankSpace()
 
-        Button(window, width=10, bg=submitColor, font=buttonFont, text="Submit", command=checkMultiplication).pack()
+        Button(window, width=10, bg=submitColor, font=BUTTON_FONT, text="Submit", command=checkMultiplication).pack()
         blankSpace()
 
         window.bind("<Return>", openCheckMultiplication)
@@ -617,7 +617,7 @@ def tryMultiplication():      #Questions the users and if they have answered cer
         Label(window, font=labelFont, text="Good job! Now you know how to do multiplication!").pack()
         blankSpace()
 
-        Button(window, width=10, bg=okColor, text="Ok", font=buttonFont, command=selectSkill).pack()
+        Button(window, width=10, bg=okColor, text="Ok", font=BUTTON_FONT, command=selectSkill).pack()
         blankSpace()
 
         window.bind("<Return>", openSelectSkill)
@@ -656,7 +656,7 @@ def checkMultiplication():      #Stores what the user has inputted in the entry 
         Label(win, font=labelFont, text="Please enter a valid NUMBER!").pack()
         Label(win).pack()
 
-        Button(win, width=10, bg=okColor, text="Ok", font=buttonFont, command=closeWindow).pack()
+        Button(win, width=10, bg=okColor, text="Ok", font=BUTTON_FONT, command=closeWindow).pack()
         Label(win).pack()
 
         win.bind("<Return>", enterCloseWindow)
@@ -685,7 +685,7 @@ def checkMultiplication():      #Stores what the user has inputted in the entry 
             Label(window, font=labelFont, text="Keep up the good work.").pack()
             blankSpace()
 
-            Button(window, width=10, bg=okColor, text="Ok", font=buttonFont, command=tryMultiplication).pack()
+            Button(window, width=10, bg=okColor, text="Ok", font=BUTTON_FONT, command=tryMultiplication).pack()
             blankSpace()
 
             window.bind("<Return>", nextMultiplication)
@@ -714,7 +714,7 @@ def checkMultiplication():      #Stores what the user has inputted in the entry 
             Label(window, font=labelFont, text="Keep practicing.").pack()
             blankSpace()
         
-            Button(window, width=10, bg=okColor, text="Ok", font=buttonFont, command=tryMultiplication).pack()
+            Button(window, width=10, bg=okColor, text="Ok", font=BUTTON_FONT, command=tryMultiplication).pack()
             blankSpace()
 
             window.bind("<Return>", nextMultiplication)
