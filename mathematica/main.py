@@ -1,7 +1,6 @@
 import tkinter as tk
 
-from mathematica import select_skill
-from fonts import *
+import welcome
 
 
 class Mathematica(tk.Tk):
@@ -34,47 +33,17 @@ class Mathematica(tk.Tk):
 
         self.frames = {}
 
-        self.show_frame(Welcome)
+        self.show_frame(welcome.Welcome)
 
     def show_frame(self, frame_to_show):
         if frame_to_show not in self.frames:
-            frame = frame_to_show(self.container)
+            frame = frame_to_show(self.container, self)
             self.frames[frame_to_show.__name__] = frame
             frame.grid(row=0, column=0, sticky="nsew")
 
         frame = self.frames[frame_to_show.__name__]
         frame.tkraise()
 
-    #
-    # def add_frame(self, frame_to_add):
-    #     frame = frame_to_add(self.container)
-    #     self.frames[frame_to_add.__name__] = frame
-    #     frame.grid(row=0, column=0, sticky="nsew")
-
-
-class Welcome(tk.Frame):
-
-    def __init__(self, parent):
-        tk.Frame.__init__(self, parent)
-
-        welcome_header = tk.Label(self, text="Welcome to Mathematica!", font=HEADER_FONT)
-        welcome_header.pack(pady=(15, 10))
-        welcome_label = tk.Label(self, text="Let's learn some math skills!", font=LABEL_FONT)
-        welcome_label.pack(pady=(5, 5))
-
-        tk.Label(self).pack()
-
-        ok_button = tk.Button(self, width=10, height=2, text="Ok", font=BUTTON_FONT,
-                              command=lambda: app.show_frame(select_skill.SelectSkill))
-        ok_button.pack()
-
-        # Allows the user to press enter and and open selectSkill module.
-        ok_button.bind('<Return>', lambda event=None: ok_button.invoke())
-
 
 app = Mathematica()
 app.mainloop()
-
-
-def show_frame(frame):
-    app.show_frame(frame)

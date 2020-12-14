@@ -1,11 +1,12 @@
 import tkinter as tk
 
 from mathematica.fonts import HEADER_FONT, BUTTON_FONT
+from skills.addition import Addition
 
 
 class SelectSkill(tk.Frame):
 
-    def __init__(self, parent):
+    def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
 
         header_label = tk.Label(self, height=2, font=HEADER_FONT,
@@ -13,7 +14,7 @@ class SelectSkill(tk.Frame):
         header_label.pack(pady=(15, 10))
 
         addition_button = tk.Button(self, width=13, height=2, text="Addition", font=BUTTON_FONT,
-                                    command=lambda: print("add"))
+                                    command=lambda event=None: controller.show_frame(Addition))
         addition_button.pack()
         subtraction_button = tk.Button(self, width=13, height=2, text="Subtraction", font=BUTTON_FONT,
                                        command=lambda: print("subtract"))
