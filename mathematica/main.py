@@ -1,6 +1,6 @@
 import tkinter as tk
 
-import welcome
+from mathematica.main_menu import welcome
 
 
 class Mathematica(tk.Tk):

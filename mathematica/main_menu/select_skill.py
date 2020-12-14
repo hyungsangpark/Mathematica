@@ -1,7 +1,7 @@
 import tkinter as tk
 
-from mathematica.fonts import HEADER_FONT, BUTTON_FONT
-from skills.addition import Addition
+from mathematica.utilities.fonts import HEADER_FONT, BUTTON_FONT
+from mathematica.skills.addition import Addition
 
 
 class SelectSkill(tk.Frame):

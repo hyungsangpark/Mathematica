@@ -1,6 +1,6 @@
 import tkinter as tk
 
-from fonts import *
+from mathematica.utilities.fonts import *
 import select_skill
 
 
