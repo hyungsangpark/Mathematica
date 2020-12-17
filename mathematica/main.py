@@ -44,6 +44,8 @@ class Mathematica(tk.Tk):
         frame = self.frames[frame_to_show.__name__]
         frame.tkraise()
 
+        return frame
+
 
 app = Mathematica()
 app.mainloop()

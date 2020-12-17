@@ -9,6 +9,8 @@ class SelectSkill(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
 
+        controller.unbind('<Return>')
+
         header_label = tk.Label(self, height=2, font=HEADER_FONT,
                                 text="Please select the mathematical skill to learn.")
         header_label.pack(pady=(15, 10))

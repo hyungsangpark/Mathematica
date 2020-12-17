@@ -1,7 +1,7 @@
 import tkinter as tk
 
 from mathematica.utilities.fonts import *
-import select_skill
+import mathematica.main_menu.select_skill as select_skill
 
 
 class Welcome(tk.Frame):

@@ -1,7 +1,7 @@
 #----------------------- Imports globally used functions and variables -----------------------#
 
 from tkinter import *
-import sys
+import sys, random
 
 title = "Mathematica"       #The title of every window in the program.
 
