@@ -6,19 +6,19 @@ from mathematica.skills.skills_list import Skills
 from mathematica.utilities.fonts import *
 
 
-class Addition(tk.Frame):
+class Multiplication(tk.Frame):
 
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
 
-        header = tk.Label(self, font=HEADER_FONT, text="Let's learn Addition!")
+        header = tk.Label(self, font=HEADER_FONT, text="Let's learn Multiplication!")
         header.pack(pady=(15, 10))
 
         info_label = tk.Label(self, font=LABEL_FONT,
-                              text="""Addition is when you find the total of the two numbers.
-For example: 3 + 2 = 5 as we are finding total of 3 and 2 together.
+                              text="""Multiplication is when you repeat adding one number by \"another number\" times.
+For example: 3 × 2 = 6 as we are adding 3 twice (2 times)
 
-Let's practice some addition questions!""")
+Let's practice some multiplication questions!""")
         info_label.pack(pady=(5, 20))
 
         button_frame = tk.Frame(self)
@@ -35,5 +35,5 @@ Let's practice some addition questions!""")
 
 
 def ask_question(controller):
-    question.operator = Skills.ADDITION
+    question.operator = Skills.MULTIPLICATION
     controller.show_frame(question.Question)

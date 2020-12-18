@@ -6,19 +6,22 @@ from mathematica.skills.skills_list import Skills
 from mathematica.utilities.fonts import *
 
 
-class Addition(tk.Frame):
+class Subtraction(tk.Frame):
 
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
 
-        header = tk.Label(self, font=HEADER_FONT, text="Let's learn Addition!")
+        header = tk.Label(self, font=HEADER_FONT, text="Let's learn Subtraction!")
         header.pack(pady=(15, 10))
 
         info_label = tk.Label(self, font=LABEL_FONT,
-                              text="""Addition is when you find the total of the two numbers.
-For example: 3 + 2 = 5 as we are finding total of 3 and 2 together.
+                              text="""Subtraction is when you takeaway one number from another.
+For example: 6 - 3 = 3 as we are taking away 3 from 6.
 
-Let's practice some addition questions!""")
+Remember: Subtraction can result in NEGATIVE numbers!
+For example: 2 - 7 = -5 as we are taking away 7 from 2.
+
+Let's practice some subtraction questions!""")
         info_label.pack(pady=(5, 20))
 
         button_frame = tk.Frame(self)
@@ -35,5 +38,5 @@ Let's practice some addition questions!""")
 
 
 def ask_question(controller):
-    question.operator = Skills.ADDITION
+    question.operator = Skills.SUBTRACTION
     controller.show_frame(question.Question)

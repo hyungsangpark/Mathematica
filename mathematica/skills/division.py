@@ -6,19 +6,20 @@ from mathematica.skills.skills_list import Skills
 from mathematica.utilities.fonts import *
 
 
-class Addition(tk.Frame):
+class Division(tk.Frame):
 
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
 
-        header = tk.Label(self, font=HEADER_FONT, text="Let's learn Addition!")
+        header = tk.Label(self, font=HEADER_FONT, text="Let's learn division!")
         header.pack(pady=(15, 10))
 
         info_label = tk.Label(self, font=LABEL_FONT,
-                              text="""Addition is when you find the total of the two numbers.
-For example: 3 + 2 = 5 as we are finding total of 3 and 2 together.
+                              text="""Division is when you break up a number into equal number of parts.
+For example: 12 ÷ 4 = 3 as we are breaking up 12 into 4 equal number of parts
+which gives 3 per each part.
 
-Let's practice some addition questions!""")
+Let's practice some division questions!""")
         info_label.pack(pady=(5, 20))
 
         button_frame = tk.Frame(self)
@@ -35,5 +36,5 @@ Let's practice some addition questions!""")
 
 
 def ask_question(controller):
-    question.operator = Skills.ADDITION
+    question.operator = Skills.DIVISION
     controller.show_frame(question.Question)
