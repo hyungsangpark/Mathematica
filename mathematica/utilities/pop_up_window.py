@@ -37,9 +37,10 @@ def alert_dialog(title: str, header: str, body: str, ok_button_action):
     window.geometry("+{}+{}".format(start_x, start_y))
     # Make window visible
     window.deiconify()
-
+    window.grab_set()
     window.mainloop()
 
 
 def destroy_dialog():
+    window.grab_release()
     window.destroy()

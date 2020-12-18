@@ -15,8 +15,8 @@ class Question(tk.Frame):
     def __init__(self, parent, controller):
         self.controller = controller
 
-        self.num1 = random.randint(0, 10)
-        self.num2 = random.randint(0, 10)
+        self.num1 = random.randint(1, 11)
+        self.num2 = random.randint(1, 11)
 
         if operator == Skills.DIVISION:
             self.num1 *= self.num2
@@ -37,6 +37,7 @@ class Question(tk.Frame):
 
         self.answer_field = tk.Entry(answer_frame, width=10)
         self.answer_field.grid(row=0, column=0, padx=(0, 5))
+        self.answer_field.focus_set()
         submit_button = tk.Button(answer_frame, width=13, height=2, text="Submit", font=BUTTON_FONT,
                                   command=lambda event=None: self.check_answer())
         submit_button.grid(row=0, column=1, padx=(5, 0))
@@ -81,6 +82,12 @@ class Question(tk.Frame):
         global question_num
         if question_num >= 10:
             question_num = 0
-            self.controller.show_frame(select_skill.SelectSkill)
+
+            pop_up.alert_dialog("Congratulation!",
+                                "Congratulations!",
+                                "You have completed current skill.\n"
+                                "You will now be directed to main menu.",
+                                lambda event=None: [pop_up.destroy_dialog(),
+                                                    self.controller.show_frame(select_skill.SelectSkill)])
         else:
             self.controller.show_frame(Question)
