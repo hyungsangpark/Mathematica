@@ -1,5 +1,3 @@
-global HEADER_FONT, LABEL_FONT, BUTTON_FONT
-
 # Font used for generic header labels.
 HEADER_FONT = ("Helvetica", 20, "bold")
 

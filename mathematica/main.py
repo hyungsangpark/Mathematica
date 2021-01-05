@@ -1,9 +1,19 @@
+import os
+import sys
 import tkinter as tk
 
-from mathematica.main_menu import welcome
+# allows local modules to be imported without error.
+file_dir = os.path.dirname(__file__)
+sys.path.append(os.path.join(file_dir, '..'))
+
+from main_menu import welcome
 
 
 class Mathematica(tk.Tk):
+    """
+    A root class for tkinter window.
+    It provides a window where the program can be displayed.
+    """
 
     def __init__(self, *args, **kwargs):
         tk.Tk.__init__(self, *args, **kwargs)
@@ -26,16 +36,23 @@ class Mathematica(tk.Tk):
         # Places the window in the center of the screen.
         self.geometry("{}x{}+{}+{}".format(window_width, window_height, start_x, start_y))
 
+        # The main container (tk.Frame) which will hold every subsequent components in the window.
         self.container = tk.Frame(self)
         self.container.pack(side="top", fill="both", expand=True)
         self.container.grid_rowconfigure(0, weight=1)
         self.container.grid_columnconfigure(0, weight=1)
 
+        # List of frames that will be displayed in this window.
         self.frames = {}
 
         self.show_frame(welcome.Welcome)
 
-    def show_frame(self, frame_to_show):
+    def show_frame(self, frame_to_show: tk.Frame) -> None:
+        """
+        Receives a frame component to be displayed
+
+        :param frame_to_show: A name of the frame to show.
+        """
         if frame_to_show not in self.frames:
             frame = frame_to_show(self.container, self)
             self.frames[frame_to_show.__name__] = frame
@@ -44,8 +61,7 @@ class Mathematica(tk.Tk):
         frame = self.frames[frame_to_show.__name__]
         frame.tkraise()
 
-        return frame
 
-
+# Starting point of the program.
 app = Mathematica()
 app.mainloop()
