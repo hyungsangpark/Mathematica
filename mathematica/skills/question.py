@@ -106,11 +106,17 @@ class Question(tk.Frame):
                                     action=lambda event=None: [pop_up.destroy_dialog(),
                                                                self.check_ten_questions_correct()])
         except ValueError:
+            body_text = "An integer is basically a whole number that is either negative or positive.\n" \
+                        "eg. numbers like 23, -12, or 0 but not %s" % user_answer
+
+            try:
+                float(user_answer)
+            except ValueError:
+                body_text += "\n\n(Yes, I can see you bashing random keys right there...)"
+
             pop_up.alert_dialog(title="Warning!",
                                 header="Please enter an integer.",
-                                body="An integer is basically a whole number that is either negative or positive.\n"
-                                     "eg. numbers like 23, -12, or 0 but not %s\n\n"
-                                     "(Yes, I can see you bashing random keys right there...)" % user_answer)
+                                body=body_text)
 
     def check_ten_questions_correct(self) -> None:
         """
