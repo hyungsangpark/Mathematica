@@ -47,7 +47,7 @@ class Mathematica(tk.Tk):
 
         self.show_frame(welcome.Welcome)
 
-    def show_frame(self, frame_to_show: tk.Frame) -> None:
+    def show_frame(self, frame_to_show) -> None:
         """
         Receives a frame component to be displayed
 
